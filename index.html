@@ -4,10 +4,80 @@
   <meta charset="UTF-8">
   <meta name="monetag" content="696b937512c972446260ba804e2fcb50">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Monetag Verification</title>
+  <title>Watch Ad</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e0e0e0);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #218838;
+    }
+
+    .note {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+  <script src="https://cdn.monetag.com/sdk/v1/monetag.min.js"></script>
 </head>
 <body>
-  <h1>✅ Monetag Verification Page</h1>
-  <p>This page is used to verify your site with Monetag.</p>
+
+  <h1>🎬 Watch Ad and Earn</h1>
+
+  <button class="button" onclick="watchPopupAd()">▶ Watch Rewarded Popup</button>
+  <br><br>
+  <button class="button" onclick="watchInterstitialAd()">🎁 Watch Interstitial Ad</button>
+
+  <p class="note">Earn rewards by watching full ads</p>
+
+  <script>
+    function watchPopupAd() {
+      show_9628731('pop').then(() => {
+        // Rewarded Popup Success
+        alert('✅ Popup Ad Completed! You earned reward.');
+      }).catch(e => {
+        // Popup Error
+        alert('⚠️ Popup Ad Failed or Closed.');
+      });
+    }
+
+    function watchInterstitialAd() {
+      show_9628731().then(() => {
+        // Rewarded Interstitial Success
+        alert('✅ Interstitial Ad Watched! You earned reward.');
+      }).catch(e => {
+        // Interstitial Error
+        alert('⚠️ Interstitial Ad Failed.');
+      });
+    }
+  </script>
+
 </body>
 </html>
